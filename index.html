@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ip" placeholder="RoDI IP Address">
+    <script>
+        function connectRODI() {
+            fetch('/conectar', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ ip: document.getElementById('ip').value })
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Error al conectar');
+                }
+            })
+            .then(data => {
+                if (data.message) {
+                    alert("Conectado exitosamente!!");
+                } else if (data.error) {
+                    alert("Error al conectar: " + data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error al conectar a RoDI');
+            });
+        }
+    </script>
+    <button onclick="connectRODI()">Connect</button>
+    <a href="AR.html"><button>AR</button></a>
+</body>
+</html>
