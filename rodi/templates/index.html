@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control RoDI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/control.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Controla el RoDI</h1>
+        <p>Usa las flechas del teclado para mover el robot.</p>
+        
+        <div id="control-status">
+            <p><strong>Botón presionado:</strong> <span id="key-pressed">Ninguno</span></p>
+        </div>
+
+        <div class="instructions">
+            <ul>
+                <li><strong>Arriba:</strong> Mueve hacia adelante</li>
+                <li><strong>Abajo:</strong> Mueve hacia atrás</li>
+                <li><strong>Izquierda:</strong> Gira a la izquierda</li>
+                <li><strong>Derecha:</strong> Gira a la derecha</li>
+                <li><strong>Soltar cualquier tecla:</strong> Detiene el robot</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
